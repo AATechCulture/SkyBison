@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "@duffel/api": "^2.5.10",
+    "axios": "^1.6.0"
+  },
+  "name": "skybison",
+  "version": "1.0.0",
+  "main": "duffel.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
