@@ -1,64 +1,28 @@
-/* SearchPage.css */
-body {
-    font-family: Arial, sans-serif;
-  }
-  
-  .SearchPage {
-    width: 100%;
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .FlightList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .FlightList-item {
+.FlightList-item {
     display: flex;
-    align-items: center;
+    align-items: left; /* Keeps items aligned vertically in the middle */
+    justify-content: space-between; /* Spaces out the children */
     border: 1px solid #636060;
     padding: 10px;
     margin-bottom: 10px;
     background-color: #575757;
   }
   
-  .FlightList-item:last-child {
-    margin-bottom: 0;
-  }
-  
-  .airlineLogo {
-    width: 50px;
-    margin-right: 20px;
+  .small-logo {
+    width: 75px; /* or any size you want */
+    height: auto; /* to maintain the aspect ratio */
   }
   
   .airlineDetails {
-    flex-grow: 1;
+    flex-grow: 1; /* Allows details to grow and take up remaining space */
+    padding-right: 20px; /* Adds some spacing to the right of the details */
   }
   
-  .airlineName {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
+  /* The .flightTimes class seems to be intended to contain departure and arrival times.
+  You can ensure they are laid out horizontally by also applying flex to them: */
   
   .flightTimes {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* This will separate the departure and arrival times */
   }
-  
-  .departureTime,
-  .arrivalTime {
-    font-size: 0.9em;
-  }
-  
-  .stops {
-    color: #555;
-    font-size: 0.9em;
-    text-align: right;
-  }
-  
-  /* Additional styles for the header, search bar, etc., can be added here */
   

@@ -12,7 +12,6 @@ const SearchFlightButton: React.FC<SearchFlightButtonProps> = ({ redirectUrl }) 
 
   return (
     <div className="search-flights-container">
-      <p>In a Hurry? Search for other flights leaving around your original departure time.</p>
       <button onClick={handleSearchClick} className="search-button">Search</button>
     </div>
   );

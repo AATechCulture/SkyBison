@@ -2,8 +2,8 @@ import React from 'react';
 import { MapContainer, TileLayer, Polyline, Marker } from 'react-leaflet';
 import L, { LatLngExpression } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import Plane from './airplane-png-10.png';
-import Cross from './red-cross.png';
+import Plane from './Graphics/airplane-png-10.png';
+import Cross from './Graphics/red-cross.png';
 
 interface FlightMapProps {
   status: 'On time' | 'Delayed' | 'Canceled';

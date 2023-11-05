@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import FlightList from './FlightList';
 import { FlightInfo } from './FlightInfo';
 import './SearchPage.css';
+import SouthwestLogo from './Graphics/Southwest-logo.jpg'
+import DeltaLogo from './Graphics/DeltaLogo.png'
 
 
 const initialFlights: FlightInfo[] = [
     {
-        airlineLogo: "path_to_southwest_logo.png", 
+        airlineLogo: SouthwestLogo, 
         airlineName: "Southwest",
         departureTime: "6:50 PM",
         arrivalTime: "3:00 AM",
@@ -15,7 +17,7 @@ const initialFlights: FlightInfo[] = [
         stops: "Nonstop",
       },
       {
-        airlineLogo: "path_to_delta_logo.png", 
+        airlineLogo: DeltaLogo, 
         airlineName: "Delta",
         departureTime: "8:50 PM",
         arrivalTime: "5:00 AM",
@@ -29,7 +31,8 @@ const SearchPage: React.FC = () => {
     const [visibleFlights, setVisibleFlights] = useState<FlightInfo[]>(initialFlights);
   
     return (
-      <div className="SearchPage">  {/* Apply the SearchPage class here */}
+      <div className="SearchPage"> 
+        <div className = "small-logo"></div> {/* Apply the SearchPage class here */}
         <FlightList flights={visibleFlights} />
       </div>
     );

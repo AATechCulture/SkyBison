@@ -6,6 +6,9 @@ import FlightMap from './FlightMap';
 import FlightStatus from './FlightStatus';
 import FlightOption from './FlightOptions';
 import SearchFlightsButton from './SearchFlightButton';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './LoginComponent';
+import Searching from './SearchPage';
 
 
 const App: React.FC = () => {
@@ -60,18 +63,27 @@ const App: React.FC = () => {
 
 
   return (
-    <div className="App">
-      <Header />
-      <FlightMap status={flightStatus} flightPath={[[40.7128, -74.0060], [34.0522, -118.2437]]} />
-      <FlightStatus status={flightStatus} delayTime={delayTime} />
-      <FlightOption {...flightData} />
-      <FlightOption {...flightData2} />
-      <FlightOption {...flightData3} />
+    <Router>
       <div className="App">
-      <SearchFlightsButton redirectUrl="https://www.example.com/search-flights" />
-    </div>
-      {/* Rest of your application */}
-    </div>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/FlightMap" element={
+            <>
+              <FlightMap status={flightStatus} flightPath={[[40.7128, -74.0060], [34.0522, -118.2437]]} />
+              <FlightStatus status={flightStatus} delayTime={delayTime} />
+              <FlightOption {...flightData} />
+              <FlightOption {...flightData2} />
+              <FlightOption {...flightData3} />
+              <div>In a hurry? Search for other flights leaving around your original departure time.</div>
+              <SearchFlightsButton redirectUrl="/Searchpage" />
+            </>
+         
+          } />
+          <Route path = "/SearchPage" element ={<Searching />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
