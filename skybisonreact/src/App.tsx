@@ -5,7 +5,7 @@ import Header from './Header';
 import FlightMap from './FlightMap';
 import FlightStatus from './FlightStatus';
 import FlightOption from './FlightOptions';
-import SearchFlightsButton from './SearchFlightButton';
+import SearchFlightButton from './SearchFlightButton';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './LoginComponent';
 import Searching from './SearchPage';
@@ -76,7 +76,7 @@ const App: React.FC = () => {
               <FlightOption {...flightData2} />
               <FlightOption {...flightData3} />
               <div>In a hurry? Search for other flights leaving around your original departure time.</div>
-              <SearchFlightsButton redirectUrl="/Searchpage" />
+              <SearchFlightButton redirectUrl="/Searchpage" />
             </>
          
           } />
