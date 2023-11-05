@@ -1,0 +1,23 @@
+/* FlightStatus.css */
+
+.flight-status {
+    padding: 8px 16px;
+    color: black;
+    font-weight: bold;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 4px;
+  }
+  
+  .flight-status.green {
+    background-color: #00c853; /* A shade of green */
+  }
+  
+  .flight-status.yellow {
+    background-color: #ffd600; /* A shade of yellow */
+  }
+  
+  .flight-status.red {
+    background-color: #d50000; /* A shade of red */
+  }
+  

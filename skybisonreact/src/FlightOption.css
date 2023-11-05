@@ -1,0 +1,59 @@
+.flight-option {
+    display: grid;
+    grid-template-columns: repeat(5, 2fr);
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+  }
+  
+  .flight-times {
+    font-weight: bold;
+  }
+  
+  .flight-details,
+  .flight-gate {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .flight-stops {
+    text-align: center;
+  }
+  
+  .flight-prices {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .price.first-class {
+    background-color: #eeeeee;
+  }
+  
+  .price.business {
+    background-color: #dddddd;
+  }
+  
+  .price.main-cabin {
+    background-color: #cccccc;
+  }
+  
+
+.airports {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    font-weight: bold;
+  }

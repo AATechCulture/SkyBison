@@ -1,17 +1,6 @@
-from typing import List
-from pydantic import BaseModel
-from pymongo import MongoClient
 
+from db_connection import accounts, trips, flights
 from data import generate_account
-
-# Initialize MongoDB connection
-client = MongoClient('mongodb://localhost:27017')
-db = client['mydatabase']
-
-# Define collections
-accounts = db['accounts']
-trips = db['trips']
-flights = db['flights']
 
 # Insert data into the accounts collection
 accounts_data = [
@@ -56,11 +45,17 @@ flights_data = [
         'trip_id': 1,
         'status': "On Time"
     },
+    {
+        'flight_id': 'G032',
+        'max_passenger_count': 150,
+        'departure_time': '2023-12-29T09:00:00',
+        'arrival_time' : '2024-01-08T03:00:00',
+        'trip_id' : 2,
+        'status' : "Delayed"
+    }
     # Add more flight data as needed
 ]
 
 flights.insert_many(flights_data)
-
-client.close()
 
 print("Database populated with accounts, associated cards, and trips.")
