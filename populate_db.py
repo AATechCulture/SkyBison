@@ -5,7 +5,7 @@ from pymongo import MongoClient
 from data import generate_account
 
 # Initialize MongoDB connection
-client = MongoClient('mongodb://localhost:27017/')
+client = MongoClient('mongodb://localhost:27017')
 db = client['mydatabase']
 
 # Define collections
@@ -61,7 +61,6 @@ flights_data = [
 
 flights.insert_many(flights_data)
 
-# Close the connection
 client.close()
 
 print("Database populated with accounts, associated cards, and trips.")

@@ -1,7 +1,7 @@
-American QuikBook Application
+# American QuikBook Backend
 Overview
 
-This application serves as a backend server for processing and handling requests to and from APIs, as well as queries to the MongoDB database. It includes functionalities such as populating the database with user accounts, associated cards, and trips, as well as handling user login requests.
+Server for processing and handling requests to and from APIs, as well as queries to the MongoDB database. It includes functionalities such as populating the database with user accounts, associated cards, and trips, as well as handling user login requests.
 Setup
 Requirements
 
@@ -15,7 +15,7 @@ To populate the database with sample data, run the database_population.py script
 
 bash
 
-python database_population.py
+    python database_population.py
 
 Backend Server
 
@@ -23,7 +23,7 @@ The backend server is implemented using Express.js and connects to the MongoDB d
 
 bash
 
-node server.js
+    node server.js
 
 The server will start and listen on port 8080.
 Endpoints
@@ -42,30 +42,30 @@ Example Request:
 
 json
 
-{
-    "aa_number": "AA123",
-    "last_name": "Doe",
-    "password": "password123"
-}
+    {
+        "aa_number": "AA123",
+        "last_name": "Doe",
+        "password": "password123"
+    }
 
 Example Response (Success):
 
 json
 
-{
-    "message": "Login successful",
-    "user": {
-        // User information
+    {
+        "message": "Login successful",
+        "user": {
+            // User information
+        }
     }
-}
 
 Example Response (Error):
 
 json
 
-{
-    "message": "Invalid username or password"
-}
+    {
+        "message": "Invalid username or password"
+    }
 
 Default Route
 
