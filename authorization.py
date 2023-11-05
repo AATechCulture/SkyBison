@@ -1,28 +1,27 @@
-from fastapi import FastAPI, Request, Form
-from fastapi.templating import Jinja2Templates
-from authorization import AANumber
+from pymongo import MongoClient
 
-from test_data import EXAMPLE_AA_NUMBERS, EXAMPLE_AA_ACCOUNTS
+# Initialize MongoDB connection
+client = MongoClient('mongodb://localhost:27017/')
+db = client['mydatabase']
+accounts = db['accounts']
 
-app = FastAPI()
-templates = Jinja2Templates(directory="templates")
+def verify_user(aa_number, last_name, password):
+    # Search for the aa_number in the accounts collection
+    user = accounts.find_one({'aa_number': aa_number})
 
-@app.get("/")
-async def get_home(request: Request):
-    return templates.TemplateResponse("home.html", {"request": request})
-
-@app.post("/protected")
-async def post_protected(request: Request, aa_number: str = Form(...), last_name: str = Form(...), password: str = Form(...)):
-    last_names = []
-    for account in EXAMPLE_AA_ACCOUNTS:
-        last = account.name.split(" ")
-        last_names.append(last[len(last) -1])
-
-    if aa_number in EXAMPLE_AA_NUMBERS and last_name in last_names:
-        return templates.TemplateResponse("protected.html", {"request": request, "aa_number": aa_number})
+    if user:
+        # If a user is found, compare last name and password
+        if user['name'].split(' ')[1] == last_name and user['password'] == password:
+            return user
+        else:
+            return False
     else:
-        return templates.TemplateResponse("unprotected.html", {"request": request})
+        return False
 
+# Example usage
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    user = verify_user('X989UT2', 'Taylor', 'password456')
+    if user != False:
+        print(user)
+    else:
+        print("Invalid Credentials")
