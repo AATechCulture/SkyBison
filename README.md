@@ -8,8 +8,8 @@ Welcome to QuikBook! This is a streamlined application designed to make booking 
 - **FlightMap**: An interactive map that displays flights and their routes.
 - **SearchPage**: A robust flight search interface that allows users to find flights from other airlines that are leaving around the same time as the original departure of the first flight. 
 
-##Components
-#Login Page
+## Components
+# Login Page
 The login page serves as the entry point to the flight booking portal. The user will be able to enter their AA number and name for authorization beofre being able to enter the rest of the application. 
 
 Features:
@@ -20,7 +20,7 @@ Usage:
 
 Users must input their credentials and click the 'Login' button to authenticate and access the portal.
 
-#FlightMap
+# FlightMap
 The FlightMap component provides a visual representation of flights on a map interface.
 
 Features:
@@ -31,7 +31,7 @@ Usage:
 
 Users can interact with the map to view specific flight paths and obtain detailed information about their flight.
 
-#SearchPage
+# SearchPage
 The SearchPage component is the heart of the flight search functionality.
 
 Features:
