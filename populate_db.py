@@ -1,6 +1,20 @@
+from typing import List
+from pydantic import BaseModel
+from pymongo import MongoClient
+import json
+from Flight_Engine_API import FlightEngineFunctions
 
 from db_connection import accounts, trips, flights
 from data import generate_account
+
+# Initialize MongoDB connection
+client = MongoClient('mongodb+srv://ryanectaylor:Rt79NxRGbQA5Xw3w@flightdata.vsg9uxo.mongodb.net/')
+db = client['QuikBook-DataBase']
+
+# Define collections
+accounts = db['accounts']
+trips = db['trips']
+flights = db['flights']
 
 # Insert data into the accounts collection
 accounts_data = [
@@ -35,27 +49,11 @@ trips_data = [
 ]
 
 trips.insert_many(trips_data)
+print("done")
 
-flights_data = [
-    {
-        'flight_id': 'F001',
-        'max_passenger_count': 150,
-        'departure_time': '2023-11-10T10:00:00',
-        'arrival_time': '2023-11-10T12:00:00',
-        'trip_id': 1,
-        'status': "On Time"
-    },
-    {
-        'flight_id': 'G032',
-        'max_passenger_count': 150,
-        'departure_time': '2023-12-29T09:00:00',
-        'arrival_time' : '2024-01-08T03:00:00',
-        'trip_id' : 2,
-        'status' : "Delayed"
-    }
-    # Add more flight data as needed
-]
-
-flights.insert_many(flights_data)
+flight_object = FlightEngineFunctions.FlightEngine()
+data = flight_object.get_flights_on_date("2023-11-05")
+flights.insert_many(data)
+client.close()
 
 print("Database populated with accounts, associated cards, and trips.")
