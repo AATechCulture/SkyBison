@@ -37,14 +37,17 @@ async function searchFlights(origin, destination, departureDate, passengers) {
         const firstSlice = offer.slices[0];
         const firstSegment = firstSlice.segments[0];
         const lastSegment = firstSlice.segments[firstSlice.segments.length - 1];
+        const airlineName = offer.owner ? offer.owner.name : 'Unknown Airline';
+
 
         // Map the API response to the FlightOptionProps structure
         const flightOption = {
+          airline: airlineName,
           departureTime: firstSegment.departing_at, // Replace with actual field name if different
           arrivalTime: lastSegment.arriving_at, // Replace with actual field name if different
           flightNumber: parseInt(firstSegment.marketing_carrier_flight_number, 10),
-          departureAirport: firstSegment.departure_airport,
-          arrivalAirport: lastSegment.arrival_airport,
+          departureAirport: origin,
+          arrivalAirport: destination,
           gate: firstSegment.departure_gate || 'N/A', // Assuming gate information is optional
           stops: firstSlice.segments.length - 1, // Assuming direct flight has 1 segment
           prices: {
