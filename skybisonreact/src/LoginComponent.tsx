@@ -106,6 +106,7 @@ const Login = () => {
         <label>
           AA Number:
           <input
+            id="aaNumber"
             type="text"
             name="aa_number"
             value={formData.aa_number}
@@ -117,6 +118,7 @@ const Login = () => {
         <label>
           Last Name:
           <input
+            id="firstName"
             type="text"
             name="last_name"
             value={formData.last_name}
