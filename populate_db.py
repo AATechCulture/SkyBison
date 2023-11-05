@@ -1,11 +1,15 @@
 from typing import List
 from pydantic import BaseModel
 from pymongo import MongoClient
+from pymongo_get_database import get_database #grabs the MongoDB database
+import json
+from Flight_Engine_API import FlightEngineFunctions
 
 from data import generate_account
 
 # Initialize MongoDB connection
-client = MongoClient('mongodb://localhost:27017/')
+client = MongoClient('mongodb+srv://<username>:<password>@flightdata.vsg9uxo.mongodb.net/')
+#db = get_database()
 db = client['mydatabase']
 
 # Define collections
@@ -46,6 +50,7 @@ trips_data = [
 ]
 
 trips.insert_many(trips_data)
+print("done")
 
 flights_data = [
     {
@@ -58,10 +63,11 @@ flights_data = [
     },
     # Add more flight data as needed
 ]
-
-flights.insert_many(flights_data)
-
-# Close the connection
+flight_object = FlightEngineFunctions.FlightEngine()
+data = flight_object.find_next_availible_flight("DFW", "PHL")
+formatted_json = json.dumps(data, indent=4)
+print(formatted_json)
+flights.insert_many(data)
 client.close()
 
 print("Database populated with accounts, associated cards, and trips.")
