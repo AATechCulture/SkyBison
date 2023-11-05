@@ -5,43 +5,42 @@ This is a repository template containing all the information that needs to accom
 
 Feel free to use any languages or frameworks, but the following information must be filled out before hacking ends.
 ___________
-# Project Name
+# QuikBook
 
 ## Challenge Statement(s) Addressed 🎯
-**...include the challenge statement(s) the project worked to address**
-
-Examples:
-* How might we decrease the United States chances of alien and monster attacks given what we know from popular alien and monster movies?
-* How might we make it possible for people in cities not to have to own a car by making car-sharing easier so that the environment will be less damaged and people can save money?
-* How might we ....
+How might we make the process for rebooking flights due to unexpected delays or cancelations seamless for our customers? How would we also help the customer acquire another flight if they absolutely need to be at their desired destination?  
 
 ## Project Description 🤯
-**....at lease 3 sentences describing what the project does and how it works**
+During any type of cancellation, delay, or missed flights our application provides information about other flights from other airlines (given the fact that the user NEEDS to get to their destination ASAP…) while still providing incentives for people to American. The application handles baggage information relieving the information desk.
 
 ## Project Value 💰
-**....at lease 3 sentences describing your target customer and tangible benefits from your solution**
+Our application relieves the information desk
+It increases customer satisfaction (take an example at SouthWest)
+It increases customer retention (shows that American cares about their customer's time)
 
 
 ## Tech Overview 💻
-**... what tech was used to bring this project to life?**
-
-Example:
-* FastAPI
-* Hugging Face AI Models
-* Next.js
+FlightEngine
+FastAPI
+Node.js
+Duffle
+Pymongo
+MongoDB
+React
 
 
 ### ✨ Contributors ✨
-**...tell the world who you and your team are 🙂**
-* Team member X (AAdvantage No)
-* Team member Y (AAdvantage No)
-* Team member Z (AAdvantage No)
+Malik Stewart (AA# Y53AP02)
+Ryan Taylor (AA# X989UT2)
+Matthew Getachew (AA# R3UJ772)
+Brandon Clarke (AA# N0RJ770)
+Myles Block (AA# Y49CH36)
 
 ### School Name 🏫
-The ABC School
+Howard University
 
 ### Team Name 🏷
-Coding Costars
+SkyBison
 
 ### Link to Video Pitch 📹
 **...point us to where you tell us about your solution 😄**
@@ -50,12 +49,12 @@ Coding Costars
 **...point us to your PPT or Canva slides 😍**
 
 ### Team Checklist due before 5p Saturday 11/4 ✅
-- [ ] Team photo
-- [ ] Team Slack channel
-- [ ] Communication established with mentor
-- [ ] Repo creation from this template
-- [ ] Hangar registration
-- [ ] Scavenger Hunt submission
+- [X] Team photo
+- [X] Team Slack channel
+- [X] Communication established with mentor
+- [X] Repo creation from this template
+- [X] Hangar registration
+- [X] Scavenger Hunt submission
 
 ### Project Checklist due before 10a Sunday 11/5 🏁
 - [ ] Presentation complete and linked
