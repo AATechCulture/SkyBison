@@ -1,34 +1,23 @@
-import express from 'express';
-import { MongoClient } from 'mongodb';
+import { flights } from './db_connection.js';
 
-const router = express.Router();
-
-const uri = 'mongodb://localhost:27017';
-const client = new MongoClient(uri);
-
-client.connect();
-
-const getUpcomingFlights = async () => {
-    const db = client.db('mydatabase');
-    const flights = db.collection('flights');
-
+const getUpcomingFlights = async (req, res) => {
     try {
-        const currentDate = new Date();
-        const upcomingFlights = await flights.find({ departure_time: { $gte: currentDate } }).toArray();
-        return upcomingFlights;
+        const departureDate = new Date(req.query.departureDate);
+        const now = new Date();
+
+        // Find all flights with departure dates between now and the specified departure date
+        const upcoming_flights = await flights.find({
+            departure_time: {
+                $gte: now.toISOString(),
+                $lte: departureDate.toISOString()
+            }
+        }).toArray();
+
+        res.status(200).json({ upcoming_flights });
     } catch (error) {
         console.error('Error fetching upcoming flights:', error);
-        throw error;
+        res.status(500).json({ message: 'Internal Server Error' });
     }
 };
 
-router.get('/upcoming-flights', async (req, res) => {
-    try {
-        const upcomingFlights = await getUpcomingFlights();
-        res.status(200).json(upcomingFlights);
-    } catch (error) {
-        res.status(500).json({ message: 'Internal Server Error' });
-    }
-});
-
-export default router;
+export default getUpcomingFlights;

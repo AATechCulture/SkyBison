@@ -1,29 +1,27 @@
-import express from 'express';
-import { MongoClient } from 'mongodb';
+import { accounts } from './db_connection.js';
 
-const router = express.Router();
-const uri = 'mongodb://localhost:27017';
-const client = new MongoClient(uri);
-
-client.connect(err => {
-    if (err) {
-        console.error('Error connecting to MongoDB:', err);
-        return;
-    }
-
-    const collection = client.db('mydatabase').collection('users');
-
-    router.post('/login', async (req, res) => {
+const login = async (req, res) => {
+    try {
         const { aa_number, last_name, password } = req.body;
 
-        const user = await collection.findOne({ aa_number, last_name, password });
+        // Find the user with the provided aa_number
+        const user = await accounts.findOne({ aa_number });
 
-        if (user) {
-            res.status(200).json({ message: 'Login successful', user });
-        } else {
-            res.status(401).json({ message: 'Invalid username or password' });
+        if (!user) {
+            return res.status(401).json({ message: 'Invalid AA number' });
         }
-    });
-});
 
-export default router;
+        // Check if last name and password match
+        if (user.last_name !== last_name || user.password !== password) {
+            return res.status(401).json({ message: 'Invalid last name or password' });
+        }
+
+        // Login successful
+        res.status(200).json({ message: 'Login successful', user });
+    } catch (error) {
+        console.error('Error during login:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
+
+export default login;

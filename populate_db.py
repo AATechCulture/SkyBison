@@ -55,5 +55,3 @@ flight_object = FlightEngineFunctions.FlightEngine()
 data = flight_object.get_flights_on_date("2023-11-05")
 flights.insert_many(data)
 client.close()
-
-print("Database populated with accounts, associated cards, and trips.")
