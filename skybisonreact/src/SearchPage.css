@@ -1,0 +1,64 @@
+/* SearchPage.css */
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .SearchPage {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .FlightList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .FlightList-item {
+    display: flex;
+    align-items: center;
+    border: 1px solid #636060;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #575757;
+  }
+  
+  .FlightList-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .airlineLogo {
+    width: 50px;
+    margin-right: 20px;
+  }
+  
+  .airlineDetails {
+    flex-grow: 1;
+  }
+  
+  .airlineName {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .flightTimes {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .departureTime,
+  .arrivalTime {
+    font-size: 0.9em;
+  }
+  
+  .stops {
+    color: #555;
+    font-size: 0.9em;
+    text-align: right;
+  }
+  
+  /* Additional styles for the header, search bar, etc., can be added here */
+  
