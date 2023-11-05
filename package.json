@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/parser": "^6.9.1",
+    "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
+    "eslint": "^8.53.0",
+    "react": "^18.2.0",
+    "react-scripts": "^5.0.1"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node server.js",
+    "client": "cd skybisonreact && npm start"
+  },
+  "name": "skybison",
+  "description": "Overview",
+  "version": "1.0.0",
+  "main": "server.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
