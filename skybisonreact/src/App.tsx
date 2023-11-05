@@ -17,11 +17,11 @@ const App: React.FC = () => {
   const delayTime = 45; // Also dynamic
 
   const flightData = {
-    departureTime: '9:38 PM',
-    arrivalTime: '6:00 AM',
-    departureAirport: 'LAX',
-    arrivalAirport: 'JFK',
-    flightNumber: 1598,
+    departureTime: '2:05 PM',
+    arrivalTime: '4:39 PM',
+    departureAirport: 'JFK',
+    arrivalAirport: 'ATL',
+    flightNumber: 2464,
     gate: 'C24',
     stops: 'Nonstop',
     prices: {
@@ -32,11 +32,11 @@ const App: React.FC = () => {
   };
 
   const flightData2 = {
-    departureTime: '10:38 PM',
-    arrivalTime: '7:00 AM',
-    departureAirport: 'LAX',
-    arrivalAirport: 'JFK',
-    flightNumber: 2134,
+    departureTime: '12:45 PM',
+    arrivalTime: '3:19 AM',
+    departureAirport: 'JFK',
+    arrivalAirport: 'ATL',
+    flightNumber: 1213,
     gate: 'A15',
     stops: 'Nonstop',
     prices: {
@@ -47,13 +47,13 @@ const App: React.FC = () => {
   };
 
   const flightData3 = {
-    departureTime: '11:50 PM',
-    arrivalTime: '8:00 AM',
-    departureAirport: 'LAX',
-    arrivalAirport: 'JFK',
+    departureTime: '3:26 PM',
+    arrivalTime: '9:06 AM',
+    departureAirport: 'JFK',
+    arrivalAirport: 'ATL',
     flightNumber: 8516,
     gate: 'B03',
-    stops: 'Nonstop',
+    stops: '1 Stop (CHI)',
     prices: {
       firstClass: 621,
       business: 430,
@@ -70,7 +70,7 @@ const App: React.FC = () => {
           <Route path="/" element={<Login />} />
           <Route path="/FlightMap" element={
             <>
-              <FlightMap status={flightStatus} flightPath={[[40.7128, -74.0060], [34.0522, -118.2437]]} />
+              <FlightMap status={flightStatus} flightPath={[[40.6413, -73.7781], [33.6404, -84.4198]]} />
               <FlightStatus status={flightStatus} delayTime={delayTime} />
               <FlightOption {...flightData} />
               <FlightOption {...flightData2} />
@@ -78,7 +78,6 @@ const App: React.FC = () => {
               <div>In a hurry? Search for other flights leaving around your original departure time.</div>
               <SearchFlightButton redirectUrl="/Searchpage" />
             </>
-         
           } />
           <Route path = "/SearchPage" element ={<Searching />} />
         </Routes>
