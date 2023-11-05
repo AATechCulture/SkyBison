@@ -1,6 +1,6 @@
-# QuikBook
+# QuickBook
 
-Welcome to QuikBook! This is a streamlined application designed to make booking flights after a delay or cancelation seamless. Our application aims to eliminate the need for people to go to a airline kiosk to get a new flight in the event that their original flight gets cancled or delayed. 
+Welcome to QuickBook! This is a streamlined application designed to make booking flights after a delay or cancelation seamless. Our application aims to eliminate the need for people to go to an airline kiosk to get a new flight in the event that their original flight gets canceled or delayed. 
 
 ## Features
 
@@ -10,7 +10,7 @@ Welcome to QuikBook! This is a streamlined application designed to make booking 
 
 ## Components
 # Login Page
-The login page serves as the entry point to the flight booking portal. The user will be able to enter their AA number and name for authorization beofre being able to enter the rest of the application. 
+The login page serves as the entry point to the flight booking portal. The user will be able to enter their AA number and name for authorization before being able to enter the rest of the application. 
 
 Features:
 
@@ -36,7 +36,7 @@ The SearchPage component is the heart of the flight search functionality.
 
 Features:
 
-A comprehensive list of flights with different airlines based off the users original flight.
+A comprehensive list of flights with different airlines based on the user's original flight.
 The user will be able to make a decision if they want to book another flight with a different airline and will be redirected to their portal to handle bookings. 
 
 Usage:
