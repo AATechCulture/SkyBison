@@ -11,29 +11,29 @@ const initialFlights: FlightInfo[] = [
     {
         airlineLogo: SouthwestLogo, 
         airlineName: "Southwest Airlines",
-        departureTime: "6:50 PM",
-        arrivalTime: "3:00 AM",
-        origin: "LAX",
-        destination: "JFK",
-        stops: "Nonstop",
+        departureTime: '9:55 AM',
+        arrivalTime: '3:00 PM',
+        origin: 'NYC',
+        destination: 'ATL',
+        stops: '1 Stop (CHI)',
       },
       {
         airlineLogo: DeltaLogo, 
         airlineName: "Delta Airlines",
-        departureTime: "8:50 PM",
-        arrivalTime: "5:00 AM",
-        origin: "LAX",
-        destination: "JFK",
-        stops: "1 Stop (HOU)",
+        departureTime: '8:29 PM',
+        arrivalTime: '10:59 PM',
+        origin: 'NYC',
+        destination: 'ATL',
+        stops: 'Nonstop',
       },
       {
         airlineLogo: UnitedLogo, 
         airlineName: "United Airlines",
-        departureTime: "6:50 PM",
-        arrivalTime: "4:48 AM",
-        origin: "LAX",
-        destination: "JFK",
-        stops: "Nonstop",
+        departureTime: '3:59 PM',
+        arrivalTime: '6:40 PM',
+        origin: 'NYC',
+        destination: 'ATL',
+        stops: 'Nonstop',
       },
 ];
 
@@ -41,7 +41,7 @@ const SearchPage: React.FC = () => {
     const [visibleFlights, setVisibleFlights] = useState<FlightInfo[]>(initialFlights);
   
     return (
-      <div className="SearchPage">  {/* Apply the SearchPage class here */}
+      <div className="SearchPage"> 
         <FlightList flights={visibleFlights} />
       </div>
     );
