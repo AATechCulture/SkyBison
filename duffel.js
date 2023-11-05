@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-function searchFlights(origin, destination, departureDate, passengers) {
+async function searchFlights(origin, destination, departureDate, passengers) {
   let requestData = JSON.stringify({
     "data": {
       "slices": [
@@ -23,13 +23,13 @@ function searchFlights(origin, destination, departureDate, passengers) {
       'Accept': 'application/json', 
       'Duffel-Version': 'v1', 
       'Content-Type': 'application/json', 
-      'Authorization': 'Bearer duffel_test_9ixI6o25Ua7EvCZ1TStQnNonimlussC-J8w3pVuMRqI' 
+      'Authorization': 'Bearer duffel_test_9ixI6o25Ua7EvCZ1TStQnNonimlussC-J8w3pVuMRqI' // Replace with your actual token
     },
     data: requestData
   };
 
-  axios.request(config)
-  .then((response) => {
+  try {
+    const response = await axios.request(config);
     if (response.data && response.data.data && Array.isArray(response.data.data.offers)) {
       const allOffers = response.data.data.offers;
       const flightOptions = allOffers.map(offer => {
@@ -40,8 +40,8 @@ function searchFlights(origin, destination, departureDate, passengers) {
 
         // Map the API response to the FlightOptionProps structure
         const flightOption = {
-          departureTime: firstSegment.departure_time,
-          arrivalTime: lastSegment.arrival_time,
+          departureTime: firstSegment.departing_at, // Replace with actual field name if different
+          arrivalTime: lastSegment.arriving_at, // Replace with actual field name if different
           flightNumber: parseInt(firstSegment.marketing_carrier_flight_number, 10),
           departureAirport: firstSegment.departure_airport,
           arrivalAirport: lastSegment.arrival_airport,
@@ -58,29 +58,33 @@ function searchFlights(origin, destination, departureDate, passengers) {
       });
 
       // Return the mapped flight options
-      console.log(flightOptions);
       return flightOptions;
     } else {
       console.error('Unexpected data structure for offers:', JSON.stringify(response.data, null, 2));
       return []; // Return an empty array if the structure is not as expected
     }
-  })
-  .catch((error) => {
+  } catch (error) {
     console.error('Error:', error.response ? error.response.data : error.message);
     return []; // Return an empty array in case of error
-  });
-
+  }
 }
 
 // Test:
-//THESE WILL BE INPUT DYNAMICALLY 
-searchFlights(
-  'NYC', // Origin
-  'ATL', // Destination
-  '2024-04-21', // Departure Date
-  [ // Passengers
-    { "type": "adult" },
-    { "type": "adult" },
-    { "age": 1 }
-  ]
-);
+// THESE WILL BE INPUT DYNAMICALLY 
+(async () => {
+  try {
+    const flightOptions = await searchFlights(
+      'NYC', // Origin
+      'ATL', // Destination
+      '2024-04-21', // Departure Date
+      [ // Passengers
+        { "type": "adult" },
+        { "type": "adult" },
+        { "age": 1 }
+      ]
+    );
+    console.log(flightOptions);
+  } catch (error) {
+    console.error('Failed to search flights:', error);
+  }
+})();
