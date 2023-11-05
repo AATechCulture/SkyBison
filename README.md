@@ -1,4 +1,4 @@
-# QuikBook
+# QuickBook
 
 ## Challenge Statement(s) Addressed 🎯
 How might we make the process for rebooking flights due to unexpected delays or cancelations seamless for our customers? How would we also help the customer acquire another flight if they absolutely need to be at their desired destination?  
